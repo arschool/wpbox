@@ -1,0 +1,29 @@
+version: "2"
+services:
+    wordpress:
+        image: wordpress:latest
+        ports:
+          - 8080:80
+        depends_on:
+          - db
+        environment:
+          WORDPRESS_DB_HOST: db:3306
+          WORDPRESS_DB_NAME: wp_db
+          WORDPRESS_DB_USER: wp_user
+          WORDPRESS_DB_PASSWORD: wppass
+        volumes:
+          - ./data/wordpress/themes:/var/www/html/wp-content/themes/
+          - ./data/wordpress/plugins:/var/www/html/wp-content/plugins/
+          - ./data/wordpress/uploads:/var/www/html/wp-content/uploads/
+    db:
+        image: mysql:latest
+        ports:
+          - 3306:3306
+        environment:
+          MYSQL_RANDOM_ROOT_PASSWORD: 1
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: wp_db
+          MYSQL_USER: wp_user
+          MYSQL_PASSWORD: wppass
+        volumes:
+          - ./data/mysql:/var/lib/mysql
