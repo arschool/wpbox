@@ -11,17 +11,14 @@
 
 1. 仮想環境を実行する
    * クローンしたディレクトリの中で下記を実行する
-
-```
-% cd wpbox/
-% docker-compose up -d
-```
+   * `% cd wpbox/`
+   * `% docker-compose up -d`
 
 1. ブラウザで確認する
    * ブラウザで[http://localhost:8080](http://localhost:8080)を確認する
 
 1. テーマを開発する
-   * `wpbox/data/wordpress/themes` 以下にディレクトルを作成し、テーマをつくる。
+   * `wpbox/data/wordpress/themes` 以下にディレクトリを作成し、テーマをつくる。
 
 ### 2. 構成
 
